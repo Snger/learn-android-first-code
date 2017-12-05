@@ -14,7 +14,7 @@ import android.widget.Toast;
  * Created by toushou on 04/12/2017.
  */
 
-public class SecondActivity extends Activity {
+public class SecondActivity extends BaseActivity {
     private static final String TAG = "SecondActivity";
 
     @Override
@@ -23,11 +23,12 @@ public class SecondActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.secound_layout);
         Log.d(TAG, "Second Activity start.");
+        ShowAllActivity();
         Intent intent = getIntent();
         String data = intent.getStringExtra("string_extra");
         Log.d(TAG, data);
 
-        Button button2 = findViewById(R.id.button_2);
+        Button button2 = (Button) findViewById(R.id.button_2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,4 +54,9 @@ public class SecondActivity extends Activity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        ActivityManager.RemoveActivity(this);
+        ShowAllActivity();
+    }
 }

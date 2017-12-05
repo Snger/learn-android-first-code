@@ -17,7 +17,7 @@ import android.widget.Toast;
  * Created by toushou on 04/12/2017.
  */
 
-public class FirstActivity extends Activity {
+public class FirstActivity extends BaseActivity {
     private final String TAG = "FirstActivity";
 
     @Override
@@ -26,8 +26,9 @@ public class FirstActivity extends Activity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.first_layout);
         Log.d(TAG, "onCreate: end");
+        ShowAllActivity();
 
-        Button button1 = findViewById(R.id.button_1);
+        Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
